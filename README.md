@@ -17,4 +17,7 @@ At the minute CopyTabs will do the following for you:
 * Copy all titles and urls to the clipboard
 * Close each tab after it was copied
 
-(https://github.com/Yoni-Satat/CopyTabs/blob/main/images/CopyTabs_Example.png?raw=true)
+![Setup example](https://github.com/Yoni-Satat/CopyTabs/blob/main/images/CopyTabs_Example.png?raw=true)
+
+
+
