@@ -1,0 +1,23 @@
+{
+    "name": "Copy Tabs",
+    "description": "Copy URLs and Headers from open tabs",
+    "version": "1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "images/copytabs16.png",
+            "32": "images/copytabs32.png",
+            "48": "images/copytabs48.png",
+            "128": "images/copytabs128.png"
+        },
+        "default_title": "Copy Tabs",
+        "default_popup": "popup.html"
+    }
+}
