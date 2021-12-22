@@ -1,6 +1,6 @@
 let copyTabs = document.getElementById("copyTabs");
 
-// color the button from chrome storage
+// color the buttons from chrome storage
 chrome.storage.sync.get("color", ({ color }) => {
     copyTabs.style.backgroundColor = color;
 });
