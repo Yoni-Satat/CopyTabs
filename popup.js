@@ -6,7 +6,7 @@ chrome.storage.sync.get("color", ({ color }) => {
 });
 
 // add click event listener that will:
-// trigger a loop through all open tabs and get url's & h1's
+// trigger a loop through all open tabs and get urls & titles
 copyTabs.addEventListener('click', () => {
 
     let copy = '';
