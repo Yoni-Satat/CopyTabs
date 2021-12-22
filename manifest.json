@@ -12,10 +12,9 @@
     ],
     "action": {
         "default_icon": {
-            "16": "images/copytabs16.png",
-            "32": "images/copytabs32.png",
-            "48": "images/copytabs48.png",
-            "128": "images/copytabs128.png"
+            "16": "images/web-browser16.png",
+            "32": "images/web-browser32.png",
+            "128": "images/web-browser128.png"
         },
         "default_title": "Copy Tabs",
         "default_popup": "popup.html"
