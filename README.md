@@ -16,3 +16,5 @@ At the minute CopyTabs will do the following for you:
 * Loop through all open tabs in current window, starting with the 4th open tab (I personally use the first 3 tabs for the google doc, my drive and the search tab)
 * Copy all titles and urls to the clipboard
 * Close each tab after it was copied
+
+(https://github.com/Yoni-Satat/CopyTabs/blob/main/images/CopyTabs_Example.png?raw=true)
