@@ -1,8 +1,15 @@
 let copyTabs = document.getElementById("copyTabs");
+let i = 0;
 
 // color the buttons from chrome storage
 chrome.storage.sync.get("color", ({ color }) => {
     copyTabs.style.backgroundColor = color;
+});
+
+chrome.storage.sync.get("copyFromIndex", ({ copyFromIndex }) => {
+    console.log(`I got this index ${copyFromIndex} from storage`);
+    i = copyFromIndex;
+    console.log(`and now i is = ${i}`);
 });
 
 // add click event listener that will:
@@ -15,7 +22,7 @@ copyTabs.addEventListener('click', () => {
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
         let title = '';
         // skip first 3 tabs
-        for (let index = 3; index < tabs.length; index++) {
+        for (let index = i; index < tabs.length; index++) {
             // get title
             title = tabs[index].title;
             // cut out the pipe | plus everything after it
