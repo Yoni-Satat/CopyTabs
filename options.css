@@ -15,6 +15,8 @@ body {
 #options h1 {
     text-align: center;
     padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: beige;
 }
 
 #checkBoxDiv, #setIndexDiv {

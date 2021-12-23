@@ -1,16 +1,21 @@
 let copyTabs = document.getElementById("copyTabs");
 let i = 0;
-
-// color the buttons from chrome storage
-chrome.storage.sync.get("color", ({ color }) => {
-    copyTabs.style.backgroundColor = color;
-});
+let closeTabs = null;
 
 chrome.storage.sync.get("copyFromIndex", ({ copyFromIndex }) => {
     console.log(`I got this index ${copyFromIndex} from storage`);
     i = copyFromIndex;
     console.log(`and now i is = ${i}`);
 });
+
+chrome.storage.sync.get("closeTabsAfterCopy", ({ closeTabsAfterCopy }) => {
+    closeTabs = closeTabsAfterCopy;
+});
+
+chrome.storage.sync.get("color", ({ color }) => {
+    copyTabs.style.backgroundColor = color;
+});
+
 
 // add click event listener that will:
 // trigger a loop through all open tabs and get urls & titles
@@ -29,10 +34,12 @@ copyTabs.addEventListener('click', () => {
             title = title.substring(0, title.indexOf('|'));
             // concat title + url with line break at the end
             copy = copy.concat(`${title} ${tabs[index].url}\n`)
-            // TODO: close each tab after copy its values
-            chrome.tabs.remove(tabs[index].id, () => {
-                console.log(`tab id ${tabs[index].id} closed...`);
-            })
+            // TODO: add condition based on closeTabsAfterCopy
+            if (closeTabs) {
+                chrome.tabs.remove(tabs[index].id, () => {
+                    console.log(`tab id ${tabs[index].id} closed...`);
+                });
+            }
         };
         // copy all titles and urls to clipboard
         navigator.clipboard.writeText(copy);
