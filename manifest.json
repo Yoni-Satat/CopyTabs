@@ -1,6 +1,6 @@
 {
-    "name": "Copy Tabs",
-    "description": "Copy URLs and Headers from open tabs",
+    "name": "Copy Tabs for Chrome",
+    "description": "Copy URLs and Titles from open tabs",
     "version": "1",
     "manifest_version": 3,
     "background": {
