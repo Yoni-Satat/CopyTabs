@@ -1,20 +1,14 @@
 let copyTabs = document.getElementById("copyTabs");
 let i = 0;
 let closeTabs = null;
+const pipe = '|';
 
-chrome.storage.sync.get("copyFromIndex", ({ copyFromIndex }) => {
-    console.log(`I got this index ${copyFromIndex} from storage`);
-    i = copyFromIndex;
-    console.log(`and now i is = ${i}`);
-});
-
-chrome.storage.sync.get("closeTabsAfterCopy", ({ closeTabsAfterCopy }) => {
-    closeTabs = closeTabsAfterCopy;
-});
-
-chrome.storage.sync.get("color", ({ color }) => {
-    copyTabs.style.backgroundColor = color;
-});
+chrome.storage.sync.get(["copyFromIndex", "closeTabsAfterCopy", "color"],
+    ({ copyFromIndex, closeTabsAfterCopy, color }) => {
+        i = copyFromIndex;
+        closeTabs = closeTabsAfterCopy;
+        copyTabs.style.backgroundColor = color;
+    });
 
 
 // add click event listener that will:
@@ -30,8 +24,14 @@ copyTabs.addEventListener('click', () => {
         for (let index = i; index < tabs.length; index++) {
             // get title
             title = tabs[index].title;
-            // cut out the pipe | plus everything after it
-            title = title.substring(0, title.indexOf('|'));
+            // check if title inclueds a pipe
+            if (title.includes(pipe)) {
+                // if it does, remove the pipe and everything after the pipe
+                title = title.substring(0, title.indexOf('|'));
+            } else {
+                title = title;
+            }
+
             // concat title + url with line break at the end
             copy = copy.concat(`${title} ${tabs[index].url}\n`)
             // TODO: add condition based on closeTabsAfterCopy
