@@ -20,10 +20,12 @@ copyTabs.addEventListener('click', () => {
     // query chrome for current window only and get array of all tabs
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
         let title = '';
-        // skip first 3 tabs
+        let url = '';
+        // start coping from selected index (i)
         for (let index = i; index < tabs.length; index++) {
-            // get title
+            // get title & url
             title = tabs[index].title;
+            url = tabs[index].url;
             // check if title inclueds a pipe
             if (title.includes(pipe)) {
                 // if it does, remove the pipe and everything after the pipe
@@ -33,11 +35,10 @@ copyTabs.addEventListener('click', () => {
             }
 
             // concat title + url with line break at the end
-            copy = copy.concat(`${title} ${tabs[index].url}\n`)
-            // TODO: add condition based on closeTabsAfterCopy
+            copy = copy.concat(`${title}\n${url}\n`)
+
             if (closeTabs) {
                 chrome.tabs.remove(tabs[index].id, () => {
-                    console.log(`tab id ${tabs[index].id} closed...`);
                 });
             }
         };

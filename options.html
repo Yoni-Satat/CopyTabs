@@ -3,19 +3,21 @@
   <head>
     <link rel="stylesheet" href="options.css">
     <link rel="stylesheet" href="copyTabsButton.css">
+    <link rel="icon" href="images/web-browser16.png">
+    <title>CopyTabs | Options</title>
   </head>
   <body>
     <main id="options">
         <h1>Options</h1>
-        <div id="checkBoxDiv">
+        <section id="checkBoxDiv">
             <h2>Closing Tabs</h2>
             <p>Leave the checkbox checked if you want to close all copied tabs</p>
             <label for="closeTabs">
                 Close Tabs
                 <input type="checkbox" name="closeTabs" id="closeTabs">
             </label>
-        </div>
-        <div id="setIndexDiv">
+        </section>
+        <section id="setIndexDiv">
             <h2>Setting Index</h2>
             <p>By default, CopyTabs will copy all open tabs in current window starting from the 4th tab from the left <br>(ie it will skip the first 3)</p>
             <p>Choose a number of tabs to skip <br>(set to 0 to copy all tabs)</p>
@@ -23,7 +25,10 @@
                 <input type="number" name="setIndex" id="setIndex">
             </label>
             <button id="saveSetIndex">save</button>
-        </div>
+            <div id="notification">
+                
+            </div>
+        </section>
     </main>
   </body>
   <script src="options.js"></script>
