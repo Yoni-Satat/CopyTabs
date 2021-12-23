@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+}
+
+#options {
+    width: 80%;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    color: #616161;
+}
+
+#options h1 {
+    text-align: center;
+    padding-top: 40px;
+}
+
+#checkBoxDiv, #setIndexDiv {
+    display: inline-block;
+    width: 40%;
+    margin-left: 40px;
+    color: #616161;
+}

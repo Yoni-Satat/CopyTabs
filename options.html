@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="copyTabsButton.css">
+  </head>
+  <body>
+    <main id="options">
+        <h1>Options</h1>
+        <div id="checkBoxDiv">
+            <h2>Closing Tabs</h2>
+            <p>Leave the checkbox checked if you want to close all copied tabs</p>
+            <input type="checkbox" name="closeTabs" id="closeTabs">
+        </div>
+        <div id="setIndexDiv">
+            <h2">Setting Index</h2>
+            <p>By default, CopyTabs will copy all open tabs in current window starting from the 4th tab from the left <br>(ie it will skip the first 3)</p>
+            <p>Choose a number of tabs to skip <br>(set to '0' to copy all tabs)</p>
+            <label for="setIndex">
+                <input type="number" name="setIndex" id="setIndex">
+            </label>
+            <button id="saveSetIndex">save</button>
+        </div>
+    </main>
+  </body>
+  <script src="options.js"></script>
+</html>
