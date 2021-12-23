@@ -1,14 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background-color: #f5f5dc;
 }
 
 #options {
     width: 80%;
     margin: 0 auto;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
     color: #616161;
 }
 
@@ -16,13 +15,12 @@ body {
     text-align: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: beige;
 }
 
 #checkBoxDiv, #setIndexDiv {
     display: inline-block;
     width: 40%;
     height: 300px;
-    margin-left: 40px;
+    margin-left: 5%;
     color: #616161;
 }

@@ -1,5 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #popup {
     width: 200px;
-    height: 200px;
+    height: 300px;
     background-color: #f9fbe7;
+}
+
+#popupMessage {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
 }
