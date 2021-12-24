@@ -9,6 +9,11 @@ body {
     background-color: #f9fbe7;
 }
 
+h1 {
+    font-size: 16px;
+    text-align: center;
+}
+
 #popupTitle {
     font-size: 14px;
     text-align: center;
@@ -32,9 +37,24 @@ body {
 }
 
 .popupBody {
-    width: 100%;
-    height: 63px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-bottom: 1px solid #616161;
+    width: 90%;
+    margin: 0 auto;
 }
+
+#about_1 {
+    font-size: 12px;
+    margin: 0;
+}
+
+#about_2 {
+    font-size: 14px;
+}
+
+#about_2 strong {
+    font-size: 12px;
+}
+
+/* display: flex;
+    justify-content: center;
+    align-items: center; */
