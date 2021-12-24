@@ -7,17 +7,23 @@
     <title>CopyTabs | Options</title>
   </head>
   <body>
-    <main id="options">
-        <h1>Options</h1>
-        <section id="checkBoxDiv">
+    <div id="options">
+        <!-- page header -->
+        <div id="pageHeader">
+          <h1>Copy Tabs for Chrome</h1>
+          <h2>Options</h2>
+        </div>
+        <!-- checkbox -->
+        <div id="checkBoxDiv">
             <h2>Closing Tabs</h2>
             <p>Leave the checkbox checked if you want to close all copied tabs</p>
             <label for="closeTabs">
                 Close Tabs
                 <input type="checkbox" name="closeTabs" id="closeTabs">
             </label>
-        </section>
-        <section id="setIndexDiv">
+        </div>
+        <!-- set index -->
+        <div id="setIndexDiv">
             <h2>Setting Index</h2>
             <p>Choose a number of tabs to skip <br>(set to 0 to copy all tabs)</p>
             <label for="setIndex">
@@ -25,10 +31,10 @@
             </label>
             <button id="saveSetIndex">save</button>
             <div id="notification">
-                
+                <!-- content displays dynamically via optins.js  -->
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
   </body>
   <script src="options.js"></script>
 </html>
