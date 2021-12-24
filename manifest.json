@@ -8,8 +8,7 @@
     },
     "permissions": [
         "storage",
-        "tabs",
-        "notifications"
+        "tabs"
     ],
     "action": {
         "default_icon": {
