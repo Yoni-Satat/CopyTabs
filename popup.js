@@ -10,9 +10,7 @@ chrome.storage.sync.get(["copyFromIndex", "closeTabsAfterCopy", "color"],
         copyTabs.style.backgroundColor = color;
     });
 
-
-// add click event listener that will:
-// trigger a loop through all open tabs and get urls & titles
+// loop through all open tabs and get urls & titles
 copyTabs.addEventListener('click', () => {
 
     let copy = '';
@@ -46,3 +44,4 @@ copyTabs.addEventListener('click', () => {
         navigator.clipboard.writeText(copy);
     });
 });
+
