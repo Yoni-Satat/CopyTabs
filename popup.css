@@ -9,6 +9,19 @@ body {
     background-color: #f9fbe7;
 }
 
+#copyTabs {
+    height: 30px;
+    width: 95%;
+    margin-left: 2.5%;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #f9fbe7;
+    cursor: copy;
+  }
+
 h1 {
     font-size: 16px;
     text-align: center;
@@ -43,8 +56,16 @@ h1 {
 }
 
 #about_1 {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0;
+}
+
+#linkToOptionsPage {
+    font-size: 14px;
+}
+
+#linkToOptionsPage a {
+    text-decoration: none;
 }
 
 #about_2 {
@@ -53,6 +74,12 @@ h1 {
 
 #about_2 strong {
     font-size: 12px;
+}
+
+#errMessage {
+    width: 100%;
+    color: crimson;
+    font-size: 16px;
 }
 
 /* display: flex;
