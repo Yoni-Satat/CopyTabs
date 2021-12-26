@@ -11,7 +11,6 @@ chrome.storage.sync.get(["closeTabsAfterCopy", "copyFromIndex"], ({ closeTabsAft
     checkBox.checked = closeTabsAfterCopy;
     closeTabs = closeTabsAfterCopy;
     indexFromStorage = copyFromIndex;
-    console.log(`indexFromStorage = ${copyFromIndex}`);
     setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.<br/> Set to 0 to copy all tabs in current window`;
 });
 
@@ -23,7 +22,6 @@ checkBox.addEventListener('click', (e) => {
 saveSetIndexBtn.addEventListener('click', () => {
 
     if (setIndex.value && setIndex.value >= 0) {
-        console.log(setIndex.value > 0);
         let copyFromIndex = Number(setIndex.value)
         chrome.storage.sync.set({ copyFromIndex });
         setIndex.value = '';

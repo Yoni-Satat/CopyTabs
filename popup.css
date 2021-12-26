@@ -50,9 +50,12 @@ h1 {
 }
 
 .popupBody {
-    border-bottom: 1px solid #616161;
     width: 90%;
     margin: 0 auto;
+}
+
+p {
+    line-height: 18px;
 }
 
 #about_1 {

@@ -21,6 +21,10 @@ body {
     padding-bottom: 20px;
 }
 
+.numbers {
+    font-weight: bold;
+}
+
 .optionCard {
     display: inline-block;
     width: 35%;;
