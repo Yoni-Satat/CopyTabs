@@ -1,14 +1,18 @@
 let closeTabs = null;
+let setIndex_message = document.querySelector('#setIndex_message');
+let indexFromStorage = null;
 const checkBox = document.querySelector('#closeTabs');
-const btnCloseTabs = document.querySelector('#saveSetIndex');
+const saveSetIndexBtn = document.querySelector('#saveSetIndex');
 const setIndex = document.querySelector('#setIndex');
 const page = document.querySelector('#options');
 const notification = document.querySelector('#notification');
 
-chrome.storage.sync.get("closeTabsAfterCopy", ({ closeTabsAfterCopy }) => {
+chrome.storage.sync.get(["closeTabsAfterCopy", "copyFromIndex"], ({ closeTabsAfterCopy, copyFromIndex }) => {
     checkBox.checked = closeTabsAfterCopy;
     closeTabs = closeTabsAfterCopy;
-    console.log(`closeTabs = ${closeTabs}`);
+    indexFromStorage = copyFromIndex;
+    console.log(`indexFromStorage = ${copyFromIndex}`);
+    setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.<br/> Set to 0 to copy all tabs in current window`;
 });
 
 checkBox.addEventListener('click', (e) => {
@@ -16,24 +20,25 @@ checkBox.addEventListener('click', (e) => {
     chrome.storage.sync.set({ closeTabsAfterCopy })
 });
 
-btnCloseTabs.addEventListener('click', () => {
+saveSetIndexBtn.addEventListener('click', () => {
 
-    if (setIndex.value) {
+    if (setIndex.value && setIndex.value >= 0) {
+        console.log(setIndex.value > 0);
         let copyFromIndex = Number(setIndex.value)
         chrome.storage.sync.set({ copyFromIndex });
         setIndex.value = '';
-        showNotification(copyFromIndex)
-        console.log(`new index saved: ${copyFromIndex}`);
-        setTimeout(() => { hideNotification() }, 3000)
+        setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${copyFromIndex} tabs.<br/> Set to 0 to copy all tabs in current window`;
+        showNotification(copyFromIndex);
+        setTimeout(() => { hideNotification() }, 5000)
     } else {
-        alert('You must enter a value under Setting Index')
+        alert('You must enter a value under Setting Index \nValue must be greater or equal to 0')
     }
 });
 
 showNotification = (index) => {
-    let message = `New Index is set to ${index}`;
-    console.log(`show notification just recieved this index... ${index}`);
+    let message = `Successfully saved index ${index}`;
     notification.innerHTML = message;
+    notification.style.color = '#4caf50 ';
 }
 
 hideNotification = () => {

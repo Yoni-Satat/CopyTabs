@@ -24,10 +24,10 @@
       </div>
       <!-- set index -->
         <div id="setIndexDiv" class="optionCard">
-          <h2>Set Index</h2>
-          <p>Choose a number of tabs to skip <br>(set to 0 to copy all tabs)</p>
+          <h2>Set new Index</h2>
+          <p id="setIndex_message"></p>
           <label for="setIndex">
-              <input type="number" name="setIndex" id="setIndex">
+              <input type="number" min="0" step="1" name="setIndex" id="setIndex">
           </label>
           <button id="saveSetIndex">save</button>
             <p id="notification">
