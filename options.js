@@ -6,10 +6,22 @@ const saveSetIndexBtn = document.querySelector('#saveSetIndex');
 const setIndex = document.querySelector('#setIndex');
 const page = document.querySelector('#options');
 const notification = document.querySelector('#notification');
+let copyUrlsAndTitlesRadio = document.querySelector('#copyUrlsAndTitles');
+let copyUrlsRadio = document.querySelector('#copyUrls');
+let copyTitlesRadio = document.querySelector('#copyTitles');
 
-chrome.storage.sync.get(["closeTabsAfterCopy", "copyFromIndex"], ({ closeTabsAfterCopy, copyFromIndex }) => {
+chrome.storage.sync.get([
+    "closeTabsAfterCopy",
+    "copyFromIndex",
+    "copyUrlsAndTitles",
+    "copyUrls",
+    "copyTitles"
+], ({ closeTabsAfterCopy, copyFromIndex, copyUrlsAndTitles, copyUrls, copyTitles }) => {
     checkBox.checked = closeTabsAfterCopy;
     closeTabs = closeTabsAfterCopy;
+    copyUrlsAndTitlesRadio.checked = copyUrlsAndTitles;
+    copyUrlsRadio.checked = copyUrls;
+    copyTitlesRadio.checked = copyTitles;
     indexFromStorage = copyFromIndex;
     setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.<br/> Set to 0 to copy all tabs in current window`;
 });
@@ -42,3 +54,28 @@ showNotification = (index) => {
 hideNotification = () => {
     notification.innerHTML = '';
 }
+
+// handle set items to copy
+copyUrlsAndTitles.addEventListener('click', (e) => {
+    chrome.storage.sync.set({
+        copyUrlsAndTitles: e.target.checked,
+        copyUrls: !e.target.value,
+        copyTitles: !e.target.value
+    });
+});
+
+copyTitles.addEventListener('click', (e) => {
+    chrome.storage.sync.set({
+        copyUrlsAndTitles: !e.target.checked,
+        copyUrls: !e.target.value,
+        copyTitles: e.target.value
+    });
+});
+
+copyUrls.addEventListener('click', (e) => {
+    chrome.storage.sync.set({
+        copyUrlsAndTitles: !e.target.checked,
+        copyUrls: e.target.value,
+        copyTitles: !e.target.value
+    });
+});
