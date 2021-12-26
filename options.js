@@ -23,6 +23,7 @@ btnCloseTabs.addEventListener('click', () => {
         chrome.storage.sync.set({ copyFromIndex });
         setIndex.value = '';
         showNotification(copyFromIndex)
+        console.log(`new index saved: ${copyFromIndex}`);
         setTimeout(() => { hideNotification() }, 3000)
     } else {
         alert('You must enter a value under Setting Index')
@@ -31,11 +32,10 @@ btnCloseTabs.addEventListener('click', () => {
 
 showNotification = (index) => {
     let message = `New Index is set to ${index}`;
-    let p = document.createElement('p');
-    p.innerHTML = message;
-    notification.appendChild(p)
+    console.log(`show notification just recieved this index... ${index}`);
+    notification.innerHTML = message;
 }
 
 hideNotification = () => {
-    notification.style.display = 'none';
+    notification.innerHTML = '';
 }
