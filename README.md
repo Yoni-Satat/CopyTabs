@@ -1,6 +1,6 @@
 # Welcome to CopyTabs
 
-[Link Try it yourself](https://chrome.google.com/webstore/detail/copy-tabs-for-chrome/geljbfgcdhlifjbclaipoaddkkjcinif)
+<a href="https://chrome.google.com/webstore/detail/copy-tabs-for-chrome/geljbfgcdhlifjbclaipoaddkkjcinif" target="_blank">Get it from Chrome Store</a>
 
 ## Created to copy all titles & urls from the 4th open tab in current window
 
