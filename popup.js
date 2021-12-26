@@ -1,7 +1,9 @@
-let copyTabs = document.getElementById("copyTabs");
-let i = 0;
+let copyTabs = document.querySelector("#copyTabs");
+let errMessage = document.querySelector('#errMessage');
+let i = null;
 let closeTabs = null;
 const pipe = '|';
+let numberOfTabsToCopy = null;
 
 chrome.storage.sync.get(["copyFromIndex", "closeTabsAfterCopy", "color"],
     ({ copyFromIndex, closeTabsAfterCopy, color }) => {
@@ -10,6 +12,17 @@ chrome.storage.sync.get(["copyFromIndex", "closeTabsAfterCopy", "color"],
         copyTabs.style.backgroundColor = color;
     });
 
+chrome.tabs.query({ currentWindow: true }, (tabs) => {
+    console.log(`numberOfTabsToCopy: ${numberOfTabsToCopy}\ni: ${i}`);
+    numberOfTabsToCopy = tabs.length - i;
+    if (numberOfTabsToCopy > 0) {
+        copyTabs.innerHTML = `Copy ${numberOfTabsToCopy} Tabs(s)`
+    } else {
+        copyTabs.innerHTML = `No Tabs to Copy`;
+        // errMessage.innerHTML = `number of tabs to copy is ${numberOfTabsToCopy}, and you are copying from index ${i}`
+    }
+});
+
 // loop through all open tabs and get urls & titles
 copyTabs.addEventListener('click', () => {
 
@@ -17,6 +30,7 @@ copyTabs.addEventListener('click', () => {
 
     // query chrome for current window only and get array of all tabs
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
+
         let title = '';
         let url = '';
         // start coping from selected index (i)
