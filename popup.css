@@ -9,6 +9,35 @@ body {
     background-color: #f9fbe7;
 }
 
+.popupBody {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#popupTitle {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#popupHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #616161;
+    text-align: center;
+}
+
+#popupHeader p {
+    font-size: 14px;
+}
+
+
+
 /* CopyTabs button */
 #copyTabs {
     height: 30px;
@@ -54,66 +83,33 @@ body {
 }
 /* End of CopyTabs button */
 
-#popupTitle {
+/* paragraphs */
+p {
     font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
+    line-height: 18px;
+    padding: 2px 8px;
 }
 
-#popupHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.flexImageContainer {
     width: 100%;
-    height: 45px;
+    height: 90px;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #616161;
-    text-align: center;
+    display: flex;
+    justify-content: left;
 }
 
-#popupHeader p {
-    font-size: 14px;
-}
-
-.popupBody {
-    width: 90%;
-    margin: 0 auto;
-}
-
-p {
-    line-height: 18px;
-    padding: 10px;
-}
-
-#about_1 {
-    font-size: 14px;
-    margin: 0;
-}
-
-#linkToOptionsPage {
-    font-size: 14px;
-}
-
-#linkToOptionsPage a {
-    text-decoration: none;
-    color: #0000ff;
-    font-weight: bold;
-}
-
-#about_2 {
-    font-size: 14px;
+#screenshot {
+    width: 80%;
+    padding: 0 8px;
+    object-fit: cover;
+    object-position: top;
 }
 
 #about_2 strong {
     font-size: 12px;
 }
-
-#errMessage {
-    width: 100%;
-    color: crimson;
-    font-size: 16px;
-}
+/* end of paragraphs */
 
 /* display: flex;
     justify-content: center;
