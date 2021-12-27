@@ -9,6 +9,7 @@ body {
     background-color: #f9fbe7;
 }
 
+/* CopyTabs button */
 #copyTabs {
     height: 30px;
     width: 95%;
@@ -16,16 +17,42 @@ body {
     outline: none;
     border: none;
     border-radius: 2px;
-    margin-top: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
     color: #f9fbe7;
     cursor: copy;
-  }
-
-h1 {
-    font-size: 16px;
-    text-align: center;
+    opacity: 0.9;
+    transition: 0.3s;
+    -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
+
+#copyTabs:hover {
+      opacity: 1;
+}
+
+@keyframes beat {
+    0% {
+      -webkit-transform: scale(1, 1);
+              transform: scale(1, 1);
+    }
+    100% {
+      -webkit-transform: scale(0.9,0.9);
+              transform: scale(0.9, 0.9);
+    }
+}
+
+#copyTabs:focus {
+    -webkit-animation: beat 0.3s ease-in-out backwards;
+            animation: beat 0.3s ease-in-out backwards;
+}
+
+  #copyTabs:active {
+    -webkit-animation: none;
+            animation: none;
+}
+/* End of CopyTabs button */
 
 #popupTitle {
     font-size: 14px;
@@ -56,6 +83,7 @@ h1 {
 
 p {
     line-height: 18px;
+    padding: 10px;
 }
 
 #about_1 {
@@ -69,6 +97,8 @@ p {
 
 #linkToOptionsPage a {
     text-decoration: none;
+    color: #0000ff;
+    font-weight: bold;
 }
 
 #about_2 {

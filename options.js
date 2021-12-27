@@ -41,7 +41,7 @@ saveSetIndexBtn.addEventListener('click', () => {
         showNotification(copyFromIndex);
         setTimeout(() => { hideNotification() }, 5000)
     } else {
-        alert('You must enter a value under Setting Index \nValue must be greater or equal to 0')
+        alert('You must enter a value that is greater than or equal to 0 \nunder Set new Index')
     }
 });
 
