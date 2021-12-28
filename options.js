@@ -1,7 +1,6 @@
 let closeTabs = null;
 let setIndex_message = document.querySelector('#setIndex_message');
 let setItemsToCopy_message = document.querySelector('#setItemsToCopy_message');
-let indexFromStorage = null;
 const checkBox = document.querySelector('#closeTabs');
 const saveSetIndexBtn = document.querySelector('#saveSetIndex');
 const setIndex = document.querySelector('#setIndex');
@@ -23,8 +22,7 @@ chrome.storage.sync.get([
     copyUrlsAndTitlesRadio.checked = copyUrlsAndTitles;
     copyUrlsRadio.checked = copyUrls;
     copyTitlesRadio.checked = copyTitles;
-    indexFromStorage = copyFromIndex;
-    setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.`;
+    setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${copyFromIndex} tabs.`;
     if (copyUrlsAndTitles) {
         setItemsToCopy_message.innerHTML = 'Current sttings: Copy both Titles & URLs';
     } else if (copyUrls) {

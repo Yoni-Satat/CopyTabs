@@ -3,10 +3,8 @@ let errMessage = document.querySelector('#errMessage');
 let copyBothUrlsAndTitles = null;
 let copyJustUrls = null;
 let copyJustTitles = null;
-let i = null;
 let closeTabs = null;
 const pipe = '|';
-let numberOfTabsToCopy = null;
 
 chrome.storage.sync.get([
     "copyFromIndex",
@@ -17,25 +15,20 @@ chrome.storage.sync.get([
     "copyTitles"
 ],
     ({ copyFromIndex, closeTabsAfterCopy, color, copyUrlsAndTitles, copyUrls, copyTitles }) => {
-        i = copyFromIndex;
         closeTabs = closeTabsAfterCopy;
         copyTabs.style.backgroundColor = color;
         copyBothUrlsAndTitles = copyUrlsAndTitles;
         copyJustUrls = copyUrls;
         copyJustTitles = copyTitles;
+        chrome.tabs.query({ currentWindow: true }, (tabs) => {
+            let numberOfTabsToCopy = tabs.length - copyFromIndex;
+            numberOfTabsToCopy > 0 ?
+                copyTabs.innerHTML = `Copy ${numberOfTabsToCopy} Tabs(s)`
+                :
+                copyTabs.innerHTML = 'No Tabs to copy';
+        });
     });
 
-chrome.tabs.query({ currentWindow: true }, (tabs) => {
-    console.log(`Copy Urls & Titles: ${copyBothUrlsAndTitles}`);
-    console.log(`Copy Urls only: ${copyJustUrls}`);
-    console.log(`Copy Titles only: ${copyJustTitles}`);
-    numberOfTabsToCopy = tabs.length - i;
-    if (numberOfTabsToCopy > 0) {
-        copyTabs.innerHTML = `Copy ${numberOfTabsToCopy} Tabs(s)`
-    } else {
-        copyTabs.innerHTML = `No Tabs to Copy`;
-    }
-});
 
 // loop through all open tabs and get urls & titles
 copyTabs.addEventListener('click', () => {
