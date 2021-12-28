@@ -68,5 +68,21 @@ body {
 
 #optionsBody p {
     width: 70%;
-    margin-left: 3%;
+    font-size: 14px;
+    padding: 0 15%;
 }
+
+.forms {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#index0 {
+    color: cornflowerblue;
+}
+
+.radioBtnDivs {
+    margin: 0 auto;
+    padding: 2px 25px;
+}
+

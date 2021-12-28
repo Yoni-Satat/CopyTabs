@@ -14,22 +14,31 @@
         </div>
         <div id="optionsBody">
           <!-- checkbox -->
-        <div id="checkBoxDiv" class="optionCard">
-          <h2>Close Tabs</h2>
-          <p>Leave the checkbox checked if you want to close all copied tabs</p>
-          <label for="closeTabs">
-              Close Tabs
-              <input type="checkbox" name="closeTabs" id="closeTabs">
-          </label>
-      </div>
+          <div id="checkBoxDiv" class="optionCard">
+            <h2>Close Tabs</h2>
+            <p>Leave the checkbox checked if you want to close all copied tabs</p>
+            <div class="forms">
+              <label for="closeTabs">
+                Close Tabs
+                <input type="checkbox" name="closeTabs" id="closeTabs">
+            </label>
+            </div>
+            <p id="closeTabs_message"></p>
+          </div>
       <!-- set index -->
         <div id="setIndexDiv" class="optionCard">
           <h2>Set new Index</h2>
           <p id="setIndex_message"></p>
-          <label for="setIndex">
-              <input type="number" min="0" step="1" name="setIndex" id="setIndex">
-          </label>
-          <button id="saveSetIndex">save</button>
+          <p id="index0">
+            Set to 0 to copy all tabs in current window
+          </p>
+          <div class="forms">
+            <label for="setIndex">
+            Set index
+            <input type="number" min="0" step="1" name="setIndex" id="setIndex">
+            </label>
+            <button id="saveSetIndex">save</button>
+          </div>
             <p id="notification">
                 <!-- content displays dynamically via optins.js  -->
             </p>
@@ -37,17 +46,20 @@
         <!-- set items to copy -->
         <div id="setItemsToCopy" class="optionCard">
           <h2>Set Items to copy</h2>
-          <div class="radioBtnDivs">
-            <input type="radio" id="copyUrlsAndTitles" name="setItemsToCopy" value="urlsAndTitles">
-            <label for="huey">Both Titles & URLs</label>
-          </div>
-          <div class="radioBtnDivs">
-            <input type="radio" id="copyUrls" name="setItemsToCopy" value="urls">
-            <label for="urls">URLs only</label>
-          </div>
-          <div class="radioBtnDivs">
-            <input type="radio" id="copyTitles" name="setItemsToCopy" value="titles">
-            <label for="huey">Titles only</label>
+          <p id="setItemsToCopy_message"></p>
+          <div class="forms">
+            <div class="radioBtnDivs">
+              <input type="radio" id="copyUrlsAndTitles" name="setItemsToCopy" value="urlsAndTitles">
+              <label for="urlsAndTitles">Both Titles & URLs</label>
+            </div>
+            <div class="radioBtnDivs">
+              <input type="radio" id="copyUrls" name="setItemsToCopy" value="urls">
+              <label for="urls">URLs only</label>
+            </div>
+            <div class="radioBtnDivs">
+              <input type="radio" id="copyTitles" name="setItemsToCopy" value="titles">
+              <label for="titles">Titles only</label>
+            </div>
           </div>
         </div>
        </div>

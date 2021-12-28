@@ -1,5 +1,6 @@
 let closeTabs = null;
 let setIndex_message = document.querySelector('#setIndex_message');
+let setItemsToCopy_message = document.querySelector('#setItemsToCopy_message');
 let indexFromStorage = null;
 const checkBox = document.querySelector('#closeTabs');
 const saveSetIndexBtn = document.querySelector('#saveSetIndex');
@@ -23,7 +24,14 @@ chrome.storage.sync.get([
     copyUrlsRadio.checked = copyUrls;
     copyTitlesRadio.checked = copyTitles;
     indexFromStorage = copyFromIndex;
-    setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.<br/> Set to 0 to copy all tabs in current window`;
+    setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${indexFromStorage} tabs.`;
+    if (copyUrlsAndTitles) {
+        setItemsToCopy_message.innerHTML = 'Current sttings: Copy both Titles & URLs';
+    } else if (copyUrls) {
+        setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the URLs';
+    } else {
+        setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the Titles';
+    }
 });
 
 checkBox.addEventListener('click', (e) => {
@@ -37,7 +45,7 @@ saveSetIndexBtn.addEventListener('click', () => {
         let copyFromIndex = Number(setIndex.value)
         chrome.storage.sync.set({ copyFromIndex });
         setIndex.value = '';
-        setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${copyFromIndex} tabs.<br/> Set to 0 to copy all tabs in current window`;
+        setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${copyFromIndex} tabs.`;
         showNotification(copyFromIndex);
         setTimeout(() => { hideNotification() }, 5000)
     } else {
@@ -62,6 +70,7 @@ copyUrlsAndTitles.addEventListener('click', (e) => {
         copyUrls: !e.target.value,
         copyTitles: !e.target.value
     });
+    setItemsToCopy_message.innerHTML = 'Current sttings: Copy both Titles & URLs';
 });
 
 copyTitles.addEventListener('click', (e) => {
@@ -70,6 +79,7 @@ copyTitles.addEventListener('click', (e) => {
         copyUrls: !e.target.value,
         copyTitles: e.target.value
     });
+    setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the Titles';
 });
 
 copyUrls.addEventListener('click', (e) => {
@@ -78,4 +88,5 @@ copyUrls.addEventListener('click', (e) => {
         copyUrls: e.target.value,
         copyTitles: !e.target.value
     });
+    setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the Urls';
 });
