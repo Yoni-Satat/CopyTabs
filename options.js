@@ -15,8 +15,19 @@ chrome.storage.sync.get([
     "copyFromIndex",
     "copyUrlsAndTitles",
     "copyUrls",
-    "copyTitles"
-], ({ closeTabsAfterCopy, copyFromIndex, copyUrlsAndTitles, copyUrls, copyTitles }) => {
+    "copyTitles",
+    "copyUrlsAndTitles_message",
+    "copyUrls_message",
+    "copyTitles_message"
+], ({
+    closeTabsAfterCopy,
+    copyFromIndex,
+    copyUrlsAndTitles,
+    copyUrls, copyTitles,
+    copyUrlsAndTitles_message,
+    copyUrls_message,
+    copyTitles_message
+}) => {
     checkBox.checked = closeTabsAfterCopy;
     closeTabs = closeTabsAfterCopy;
     copyUrlsAndTitlesRadio.checked = copyUrlsAndTitles;
@@ -24,11 +35,11 @@ chrome.storage.sync.get([
     copyTitlesRadio.checked = copyTitles;
     setIndex_message.innerHTML = `CopyTabs is currently set to skip the first ${copyFromIndex} tabs.`;
     if (copyUrlsAndTitles) {
-        setItemsToCopy_message.innerHTML = 'Current sttings: Copy both Titles & URLs';
+        setItemsToCopy_message.innerHTML = copyUrlsAndTitles_message;
     } else if (copyUrls) {
-        setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the URLs';
+        setItemsToCopy_message.innerHTML = copyUrls_message;
     } else {
-        setItemsToCopy_message.innerHTML = 'Current sttings: Copy just the Titles';
+        setItemsToCopy_message.innerHTML = copyTitles_message;
     }
 });
 

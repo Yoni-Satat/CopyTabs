@@ -6,7 +6,10 @@ chrome.runtime.onInstalled.addListener(() => {
         copyFromIndex: 3,
         closeTabsAfterCopy: true,
         copyUrlsAndTitles: true,
+        copyUrlsAndTitles_message: 'Current sttings: Copy both Titles & URLs',
         copyUrls: false,
-        copyTitles: false
+        copyUrls_message: 'Current sttings: Copy just the URLs',
+        copyTitles: false,
+        copyTitles_message: 'Current sttings: Copy just the Titles'
     });
 });
