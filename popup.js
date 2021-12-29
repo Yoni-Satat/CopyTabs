@@ -5,6 +5,7 @@ let copyJustUrls = null;
 let copyJustTitles = null;
 let closeTabs = null;
 const pipe = '|';
+let i = null;
 
 chrome.storage.sync.get([
     "copyFromIndex",
@@ -16,6 +17,7 @@ chrome.storage.sync.get([
 ],
     ({ copyFromIndex, closeTabsAfterCopy, color, copyUrlsAndTitles, copyUrls, copyTitles }) => {
         closeTabs = closeTabsAfterCopy;
+        i = copyFromIndex;
         copyTabs.style.backgroundColor = color;
         copyBothUrlsAndTitles = copyUrlsAndTitles;
         copyJustUrls = copyUrls;
