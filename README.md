@@ -1,6 +1,6 @@
 # Welcome to CopyTabs
 
-<a href="https://chrome.google.com/webstore/detail/copy-tabs-for-chrome/geljbfgcdhlifjbclaipoaddkkjcinif" target="_blank">Get it from Chrome Store</a>
+<h2><a href="https://chrome.google.com/webstore/detail/copy-tabs-for-chrome/geljbfgcdhlifjbclaipoaddkkjcinif" target="_blank">Get it from Chrome Store</a></h2>
 
 ## Created to copy all titles & urls from the 4th open tab in current window
 
@@ -14,10 +14,17 @@ Thankfully the folks at Google Chrome created this beautiful API that allows us 
 
 ### What does CopyTabs know to do:
 
-At the minute CopyTabs will do the following for you:
-* Loop through all open tabs in current window, starting with the 4th open tab (I personally use the first 3 tabs for the google doc, my drive and the search tab)
-* Copy all titles and urls to the clipboard
+* Copy from open tabs in current window:
+    * Both Titles & URLs.
+    * Just the URLs.
+    * Just the Titles.
+
 * Close each tab after it was copied
+    * can be changed in Options page to leave copied tabs open
+
+* Default settings:
+    * Start copy from index 3 (the 4th open tab).
+    * Close each copied tab.
 
 ![Setup example](https://github.com/Yoni-Satat/CopyTabs/blob/main/images/CopyTabs_Example.png?raw=true)
 
