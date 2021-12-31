@@ -66,6 +66,10 @@ body {
     text-align: center;
 }
 
+#index0 {
+    color: cornflowerblue;
+}
+
 #optionsBody p {
     width: 70%;
     font-size: 14px;
@@ -75,10 +79,6 @@ body {
 .forms {
     width: 70%;
     margin: 0 auto;
-}
-
-#index0 {
-    color: cornflowerblue;
 }
 
 .radioBtnDivs {

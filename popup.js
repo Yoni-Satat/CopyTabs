@@ -15,7 +15,14 @@ chrome.storage.sync.get([
     "copyUrls",
     "copyTitles"
 ],
-    ({ copyFromIndex, closeTabsAfterCopy, color, copyUrlsAndTitles, copyUrls, copyTitles }) => {
+    ({
+        copyFromIndex,
+        closeTabsAfterCopy,
+        color,
+        copyUrlsAndTitles,
+        copyUrls,
+        copyTitles
+    }) => {
         closeTabs = closeTabsAfterCopy;
         i = copyFromIndex;
         copyTabs.style.backgroundColor = color;
@@ -31,10 +38,7 @@ chrome.storage.sync.get([
         });
     });
 
-
-// loop through all open tabs and get urls & titles
 copyTabs.addEventListener('click', () => {
-    // query chrome for current window only and get array of all tabs
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
         if (copyBothUrlsAndTitles) {
             copyBoth(tabs, i);
@@ -51,18 +55,13 @@ copyBoth = (tabs, i) => {
     let title = '';
     let url = '';
     for (let index = i; index < tabs.length; index++) {
-        // get title & url
         title = tabs[index].title;
         url = tabs[index].url;
-        // check if title inclueds a pipe
         if (title.includes(pipe)) {
-            // if it does, remove the pipe and everything after the pipe
             title = title.substring(0, title.indexOf('|'));
         } else {
             title = title;
         }
-
-        // concat title + url with line break at the end
         copy = copy.concat(`${title}\n${url}\n`)
 
         if (closeTabs) {
@@ -70,7 +69,6 @@ copyBoth = (tabs, i) => {
             });
         }
     };
-    // copy all titles and urls to clipboard
     navigator.clipboard.writeText(copy);
 }
 
@@ -78,18 +76,13 @@ copyUrlsOnly = (tabs, i) => {
     let copy = '';
     let url = '';
     for (let index = i; index < tabs.length; index++) {
-        // get url
         url = tabs[index].url;
-
-        // concat urls with line break at the end
-        copy = copy.concat(`${url}\n\n`)
-
+        copy = copy.concat(`${url}\n\n`);
         if (closeTabs) {
             chrome.tabs.remove(tabs[index].id, () => {
             });
         }
     };
-    // copy all titles and urls to clipboard
     navigator.clipboard.writeText(copy);
 }
 
@@ -97,17 +90,12 @@ copyTitlesOnly = (tabs, i) => {
     let copy = '';
     let title = '';
     for (let index = i; index < tabs.length; index++) {
-        // get titles
         title = tabs[index].title;
-        // check if title inclueds a pipe
         if (title.includes(pipe)) {
-            // if it does, remove the pipe and everything after the pipe
             title = title.substring(0, title.indexOf('|'));
         } else {
             title = title;
         }
-
-        // concat title + url with line break at the end
         copy = copy.concat(`${title}\n\n`)
 
         if (closeTabs) {
@@ -115,7 +103,6 @@ copyTitlesOnly = (tabs, i) => {
             });
         }
     };
-    // copy all titles and urls to clipboard
     navigator.clipboard.writeText(copy);
 }
 
