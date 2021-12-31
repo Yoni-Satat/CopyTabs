@@ -16,7 +16,7 @@
             "32": "images/web-browser32.png",
             "128": "images/web-browser128.png"
         },
-        "default_title": "Copy Tabs",
+        "default_title": "Right click for more options | CopyTabs",
         "default_popup": "popup.html"
     },
     "icons": {
